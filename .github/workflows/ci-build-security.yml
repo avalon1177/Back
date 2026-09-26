@@ -1,0 +1,33 @@
+name: Build & Security Scan
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build backend image
+      run: docker build -t backend:test backend/
+
+    - name: Build frontend image
+      run: docker build -t frontend:test frontend/
+
+    - name: Trivy backend
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: backend:test
+        severity: HIGH,CRITICAL
+        exit-code: 0
+
+    - name: Trivy frontend
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: frontend:test
+        severity: HIGH,CRITICAL
+        exit-code: 0
+

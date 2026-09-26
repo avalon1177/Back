@@ -1,0 +1,21 @@
+name: Deploy to Staging
+
+on:
+  push:
+    branches: [ staging ]
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.STAGING_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd /opt/project
+          docker compose pull
+          docker compose up -d

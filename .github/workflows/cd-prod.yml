@@ -1,0 +1,46 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Insecure Registry
+      run: |
+          echo '{"insecure-registries": ["16.16.172.50:5000"]}' | sudo tee /etc/docker/daemon.json
+          sudo systemctl restart docker
+    - name: Build and Push Docker Image
+      run: |
+          docker build --no-cache -t 16.16.172.50:5000/backend:latest .
+          docker push 16.16.172.50:5000/backend:latest
+    - name: Deploy PROD
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          cd ~/marketplace
+            
+            # 1. Примусове видалення старого
+            docker-compose stop backend || true
+            docker-compose rm -f backend || true
+            
+            # 2. Очищення локального кешу образів на сервері
+            docker rmi 16.16.172.50:5000/backend:latest || true
+            docker rmi localhost:5000/backend:latest || true
+            
+            # 3. Підтягування свіжого образу через localhost
+            docker pull localhost:5000/backend:latest
+            docker tag localhost:5000/backend:latest 16.16.172.50:5000/backend:latest
+            
+            # 4. Запуск з новим кодом
+            docker-compose up -d --no-deps backend

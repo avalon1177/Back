@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="483b2159-43a0-4436-ade9-fa3a00234036" name="1@DESKTOP-U23KRL0 2026-03-31 17:17:16" runUser="DESKTOP-U23KRL0\1" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-03-31T17:17:16.7253240+02:00" queuing="2026-03-31T17:17:16.7253249+02:00" start="2026-03-31T17:17:07.3505665+02:00" finish="2026-03-31T17:17:16.7379267+02:00" />
+  <TestSettings name="default" id="c7f74ecd-2a91-4360-a213-5fab7673396f">
+    <Deployment runDeploymentRoot="1_DESKTOP-U23KRL0_2026-03-31_17_17_16" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="440af7b4-a915-4bdc-81bd-927d5b9dbd3a" testId="b94a9ffa-f22f-4f2e-b09e-2babb1d21a69" testName="Marketplace.IntegrationTests.CheckoutConcurrencyTests.Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds" computerName="DESKTOP-U23KRL0" duration="00:00:02.9079466" startTime="2026-03-31T17:17:16.5506537+02:00" endTime="2026-03-31T17:17:16.5507209+02:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="440af7b4-a915-4bdc-81bd-927d5b9dbd3a">
+      <Output>
+        <ErrorInfo>
+          <Message>System.InvalidOperationException : SqliteConnection does not support nested transactions.</Message>
+          <StackTrace>   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext() in D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs:line 561&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.&lt;Invoke&gt;g__AwaitMatcher|10_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)&#xD;
+   at Microsoft.AspNetCore.TestHost.HttpContextBuilder.&lt;&gt;c__DisplayClass23_0.&lt;&lt;SendAsync&gt;g__RunRequestAsync|0&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.TestHost.ClientHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+   at Microsoft.AspNetCore.Mvc.Testing.Handlers.CookieContainerHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+   at Microsoft.AspNetCore.Mvc.Testing.Handlers.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+   at System.Net.Http.HttpClient.&lt;SendAsync&gt;g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)&#xD;
+   at Marketplace.IntegrationTests.CheckoutConcurrencyTests.&lt;&gt;c__DisplayClass1_0.&lt;&lt;Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds&gt;b__0&gt;d.MoveNext() in D:\Illya\Payed\Promka\tests\Marketplace.IntegrationTests\CheckoutConcurrencyTests.cs:line 39&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Marketplace.IntegrationTests.CheckoutConcurrencyTests.Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds() in D:\Illya\Payed\Promka\tests\Marketplace.IntegrationTests\CheckoutConcurrencyTests.cs:line 43&#xD;
+--- End of stack trace from previous location ---</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Marketplace.IntegrationTests.CheckoutConcurrencyTests.Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds" storage="d:\illya\payed\promka\tests\marketplace.integrationtests\bin\debug\net10.0\marketplace.integrationtests.dll" id="b94a9ffa-f22f-4f2e-b09e-2babb1d21a69">
+      <Execution id="440af7b4-a915-4bdc-81bd-927d5b9dbd3a" />
+      <TestMethod codeBase="D:\Illya\Payed\Promka\tests\Marketplace.IntegrationTests\bin\Debug\net10.0\Marketplace.IntegrationTests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="Marketplace.IntegrationTests.CheckoutConcurrencyTests" name="Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="b94a9ffa-f22f-4f2e-b09e-2babb1d21a69" executionId="440af7b4-a915-4bdc-81bd-927d5b9dbd3a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" passed="0" failed="1" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.8.2+699d445a1a (64-bit .NET 10.0.5)&#xD;
+[xUnit.net 00:00:00.20]   Discovering: Marketplace.IntegrationTests&#xD;
+[xUnit.net 00:00:00.38]   Discovered:  Marketplace.IntegrationTests&#xD;
+[xUnit.net 00:00:00.40]   Starting:    Marketplace.IntegrationTests&#xD;
+[17:17:16 ERR] An exception occurred in the database while saving changes for context type 'Marketplace.Infrastructure.Persistence.AppDbContext'.&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[17:17:16 ERR] An exception occurred in the database while saving changes for context type 'Marketplace.Infrastructure.Persistence.AppDbContext'.&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[17:17:16 ERR] An exception occurred in the database while saving changes for context type 'Marketplace.Infrastructure.Persistence.AppDbContext'.&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[17:17:16 ERR] HTTP POST /api/orders/checkout responded 500 in 483.7696 ms&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext() in D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs:line 561&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+[17:17:16 ERR] HTTP POST /api/orders/checkout responded 500 in 484.5052 ms&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext() in D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs:line 561&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+[17:17:16 ERR] HTTP POST /api/orders/checkout responded 500 in 483.2908 ms&#xD;
+System.InvalidOperationException: SqliteConnection does not support nested transactions.&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+   at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+   at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext() in D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs:line 561&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+[17:17:16 ERR] HTTP POST /api/orders/checkout responded 500 in 5.4172 ms&#xD;
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 5: 'unable to delete/modify user-function due to active statements'.&#xD;
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.CreateFunctionCore[TState,TResult](String name, Int32 arity, TState state, Func`3 function, Boolean isDeterministic)&#xD;
+   at Microsoft.Data.Sqlite.SqliteConnection.CreateFunction[T1,T2,TResult](String name, Func`3 function, Boolean isDeterministic)&#xD;
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.InitializeDbConnection(DbConnection connection)&#xD;
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection..ctor(RelationalConnectionDependencies dependencies, IRawSqlCommandBuilder rawSqlCommandBuilder, IDiagnosticsLogger`1 logger)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)&#xD;
+   at Microsoft.Extensions.DependencyInjection.SqliteServiceCollectionExtensions.&lt;&gt;c.&lt;AddEntityFrameworkSqlite&gt;b__1_0(IServiceProvider p)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at ResolveService(ILEmitResolverBuilderRuntimeContext, ServiceProviderEngineScope)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)&#xD;
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.get_ContextServices()&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()&#xD;
+   at Microsoft.EntityFrameworkCore.DbContext.Set[TEntity]()&#xD;
+   at Marketplace.Infrastructure.Persistence.AppDbContext.get_CartItems() in D:\Illya\Payed\Promka\src\Marketplace.Infrastructure\Persistence\AppDbContext.cs:line 14&#xD;
+   at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext() in D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs:line 487&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+--- End of stack trace from previous location ---&#xD;
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+[17:17:16 INF] HTTP POST /api/orders/checkout responded 200 in 566.0648 ms&#xD;
+[xUnit.net 00:00:08.33]       System.InvalidOperationException : SqliteConnection does not support nested transactions.&#xD;
+[xUnit.net 00:00:08.34]       Stack Trace:&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel, Boolean deferred)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.Data.Sqlite.SqliteConnection.BeginTransaction(IsolationLevel isolationLevel)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.Data.Sqlite.SqliteConnection.BeginDbTransaction(IsolationLevel isolationLevel)&#xD;
+[xUnit.net 00:00:08.34]            at System.Data.Common.DbConnection.BeginDbTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(IsolationLevel isolationLevel, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.BeginTransactionAsync(CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]         D:\Illya\Payed\Promka\src\Marketplace.API\Features\Legacy\LegacyEndpoints.cs(561,0): at Marketplace.API.Features.Legacy.LegacyEndpoints.&lt;&gt;c.&lt;&lt;MapLegacyEndpoints&gt;b__0_27&gt;d.MoveNext()&#xD;
+[xUnit.net 00:00:08.34]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Http.RequestDelegateFactory.ExecuteTaskResult[T](Task`1 task, HttpContext httpContext)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Http.RequestDelegateFactory.&lt;&gt;c__DisplayClass102_2.&lt;&lt;HandleRequestBodyAndCompileRequestDelegateForJson&gt;b__2&gt;d.MoveNext()&#xD;
+[xUnit.net 00:00:08.34]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)&#xD;
+[xUnit.net 00:00:08.34]            at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)&#xD;
+[xUnit.net 00:00:08.34]            at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)&#xD;
+[xUnit.net 00:00:08.34]            at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.&lt;Invoke&gt;g__AwaitMatcher|10_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.TestHost.HttpContextBuilder.&lt;&gt;c__DisplayClass23_0.&lt;&lt;SendAsync&gt;g__RunRequestAsync|0&gt;d.MoveNext()&#xD;
+[xUnit.net 00:00:08.34]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.TestHost.ClientHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Mvc.Testing.Handlers.CookieContainerHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at Microsoft.AspNetCore.Mvc.Testing.Handlers.RedirectHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)&#xD;
+[xUnit.net 00:00:08.34]            at System.Net.Http.HttpClient.&lt;SendAsync&gt;g__Core|83_0(HttpRequestMessage request, HttpCompletionOption completionOption, CancellationTokenSource cts, Boolean disposeCts, CancellationTokenSource pendingRequestsCts, CancellationToken originalCancellationToken)&#xD;
+[xUnit.net 00:00:08.34]         D:\Illya\Payed\Promka\tests\Marketplace.IntegrationTests\CheckoutConcurrencyTests.cs(39,0): at Marketplace.IntegrationTests.CheckoutConcurrencyTests.&lt;&gt;c__DisplayClass1_0.&lt;&lt;Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds&gt;b__0&gt;d.MoveNext()&#xD;
+[xUnit.net 00:00:08.35]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.35]         D:\Illya\Payed\Promka\tests\Marketplace.IntegrationTests\CheckoutConcurrencyTests.cs(43,0): at Marketplace.IntegrationTests.CheckoutConcurrencyTests.Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds()&#xD;
+[xUnit.net 00:00:08.35]         --- End of stack trace from previous location ---&#xD;
+[xUnit.net 00:00:08.37]   Finished:    Marketplace.IntegrationTests&#xD;
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="DESKTOP-U23KRL0" outcome="Error" timestamp="2026-03-31T17:17:16.5357443+02:00">
+        <Text>[xUnit.net 00:00:08.33]     Marketplace.IntegrationTests.CheckoutConcurrencyTests.Checkout_ConcurrentBuyersRaceForLastItem_OnlyOneSucceeds [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
